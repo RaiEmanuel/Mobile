@@ -47,6 +47,8 @@ void depthFirst(Node root, List<String> code) {
 
 void main() {
   String? text = "ABRACADABRA";
+  print("Digite a palavra a ser codificada: ");
+  text = stdin.readLineSync()!;
   List<String>? splitedText = text.split("");
   //conta frequencia de cada letra
   Map<String, int> frequencys = Map();
@@ -91,7 +93,8 @@ void main() {
       huffmanTree.removeAt(0); //pega arvore restante minima (huffman)
   depthFirst(tree.root!, []);
   for (String letter in splitedText) {
-    digest.add(mapHuffman[letter]!);//coloca na string codificada o codigo huffman da letra lida
+    digest.add(mapHuffman[
+        letter]!); //coloca na string codificada o codigo huffman da letra lida
   }
   print("${text} = ${digest.join("")}");
 }
